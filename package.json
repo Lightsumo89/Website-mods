@@ -33,6 +33,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"color-scheme": "^1.0.1",
 		"dayjs": "^1.11.13"
 	}
 }
