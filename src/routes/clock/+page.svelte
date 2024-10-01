@@ -1,20 +1,12 @@
 <script lang="ts">
-	import moment from 'moment';
-	let currentDate: String;
-	let currentTime: String;
-
-	let dow = moment().format('dddd');
-	time();
-	setInterval(time, 1000);
-	function time() {
-		currentTime = moment().format('h:mm:ssa');
-		currentDate = moment().format('dddd, MMMM Do');
-	}
+	import Countdown from '$lib/countDown.svelte';
+	// let remaining: Remaining;
 </script>
 
-<div class="bg-slate-900 h-screen">
-	<div class="flex flex-col justify-center items-center h-screen text-center text-6xl text-cyan-50">
-		{currentTime} <br />
-		{currentDate}
+<div class="bg-slate-900 h-screen flex flex-col items-center justify-center">
+	<div class=" bg-gray-700 p-5 rounded-lg">
+		<div class="text-blue-50 text-3xl">
+			Days until finals: <Countdown date="12-09-24"></Countdown> days
+		</div>
 	</div>
 </div>
