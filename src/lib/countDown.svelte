@@ -1,5 +1,5 @@
 <script lang="ts">
-	export let date;
+	let date = '12-09-24';
 	let futueDate = new Date(date).getTime();
 	let differenceInDays: Number;
 
@@ -11,4 +11,4 @@
 	setInterval(calc, 5000);
 </script>
 
-<slot>{differenceInDays}</slot>
+<slot>Days until finals: {differenceInDays} days</slot>

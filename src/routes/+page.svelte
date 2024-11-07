@@ -1,37 +1,40 @@
 <script lang="ts">
-	import Clock from '$lib/clock.svelte';
-	import CountDown from '$lib/countDown.svelte';
-	import ColorScheme from 'color-scheme';
+	import type { ComponentType } from 'svelte';
 
-	let scheme = new ColorScheme();
+	const Components: Record<string, { default: ComponentType }> = import.meta.glob(
+		'/src/lib/*.svelte',
+		{ eager: true }
+	);
 
-	scheme
-		.from_hue(21) // Start the scheme
-		.scheme('contrast') // Use the 'triade' scheme, that is, colors
-		// selected from 3 points equidistant around
-		// the color wheel.
-		.variation('soft'); // Use the 'soft' color variation
+	// import ColorScheme from 'color-scheme';
 
-	var colors = scheme.colors();
+	// let scheme = new ColorScheme();
 
-	let randnum = Math.floor(Math.random() * colors.length);
-	let background = randnum % 2 === 0 ? colors[randnum + 1] : colors[randnum];
-	let TextColor = randnum % 2 === 0 ? colors[randnum] : colors[randnum - 1];
+	// scheme
+	// 	.from_hue(21) // Start the scheme
+	// 	.scheme('contrast') // Use the 'triade' scheme, that is, colors
+	// 	// selected from 3 points equidistant around
+	// 	// the color wheel.
+	// 	.variation('soft'); // Use the 'soft' color variation
+
+	// var colors = scheme.colors();
+
+	// let randnum = Math.floor(Math.random() * colors.length);
+
+	let background = 'bf7a60';
+	let TextColor = 'e6d5cf';
 	let padding = 20;
 </script>
 
 <div class="bg-slate-900 h-screen w-screen flex flex-col justify-center items-center space-y-10">
-	<div
-		style="color: #{TextColor}; background-color:#{background}; padding:{padding}px"
-		class="rounded-lg"
-	>
-		<div class="text-center text-6xl">
-			Days until finals: <CountDown date="12-09-24"></CountDown> days
-		</div>
-	</div>
-	<div style="background-color: #{background}; padding:{padding}px " class=" rounded-lg">
-		<div style="color: #{TextColor}" class="text-center text-6xl">
-			<Clock></Clock>
-		</div>
+	<div class="text-center text-6xl">
+		{#each Object.values(Components) as { default: Component }}
+			<div
+				style="color: #{TextColor}; background-color:#{background}; padding: {padding}px"
+				class="rounded-lg px-{padding} m-5"
+			>
+				<svelte:component this={Component} />
+			</div>
+		{/each}
 	</div>
 </div>
