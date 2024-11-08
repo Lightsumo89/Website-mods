@@ -2,7 +2,7 @@
 	import type { ComponentType } from 'svelte';
 
 	const Components: Record<string, { default: ComponentType }> = import.meta.glob(
-		'/src/lib/*.svelte',
+		'/src/lib/components/*.svelte',
 		{ eager: true }
 	);
 
@@ -26,12 +26,12 @@
 	let padding = 20;
 </script>
 
-<div class="bg-slate-900 h-screen w-screen flex flex-col justify-center items-center space-y-10">
+<div class="bg-purp-900 h-screen w-screen flex flex-col justify-center items-center space-y-10">
 	<div class="text-center text-6xl">
 		{#each Object.values(Components) as { default: Component }}
 			<div
-				style="color: #{TextColor}; background-color:#{background}; padding: {padding}px"
-				class="rounded-lg px-{padding} m-5"
+				style="padding: {padding}px"
+				class="rounded-lg px-{padding} m-5 bg-purp-400 text-fair-pink-100/70"
 			>
 				<svelte:component this={Component} />
 			</div>
