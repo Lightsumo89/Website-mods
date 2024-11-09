@@ -12,4 +12,6 @@
 	}
 </script>
 
-<slot>{currentTime}<br /> {currentDate}</slot>
+<div class="text-center">
+	<slot>{currentTime}<br /> {currentDate}</slot>
+</div>

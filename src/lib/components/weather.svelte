@@ -9,15 +9,13 @@
 
 	let promise: Promise<string>;
 	$: promise;
-	onMount(async () => {
+	async function fetchWeather() {
 		const response = await fetch(WTTR_URL);
 		promise = response.text();
-
-		setInterval(async () => {
-			const response = await fetch(WTTR_URL);
-			promise = response.text();
-		}, 600000);
-	});
+		return promise;
+	}
+	onMount(fetchWeather);
+	setInterval(fetchWeather, 60 * 1000 * 10);
 </script>
 
 <div id="wttr">
