@@ -17,26 +17,29 @@
 </script>
 
 <div
-	class="bg-gradient-to-br from-[#FC466B] to-[#3F5EFB] h-screen w-screen items-center space-y-10 justify-center flex"
+	class="bg-gradient-to-br from-[#B190BA] to-[#E8B595] h-screen w-screen items-center space-y-10 justify-center flex"
 >
-	<div class="text-6xl">
+	<div class="text-6xl bg-gradient-to-br from-[#B190BA] to-[#E8B595] bg-clip-text">
 		<div class=" flex flex-col justify-center">
 			<div
-				class="rounded-lg backdrop-blur-xl m-[--margin] p-[--padding] bg-gray-50/20 text-fair-pink-100/70"
+				class="rounded-lg backdrop-blur-xl m-[--margin] p-[--padding] bg-[--bcolor] text-[#C39CAE]/70"
 			>
-				<svelte:component this={components[0]} />
+				<div class="bg-gradient-to-br from-[#B190BA] to-[#E8B595] bg-clip-text">
+					<svelte:component this={components[0]} />
+				</div>
 			</div>
 			<div
-				class="rounded-lg backdrop-blur-xl m-[--margin] p-[--padding] bg-gray-50/20 text-fair-pink-100/70"
+				class="rounded-lg backdrop-blur-xl m-[--margin] p-[--padding] bg-[--bcolor] text-fair-pink-100/70"
 			>
 				<svelte:component this={components[1]} />
 			</div>
 		</div>
 	</div>
-
-	<div
-		class="text-6xl rounded-lg backdrop-blur-xl m-15 p-[--padding] bg-gray-50/20 text-fair-pink-100/70"
-	>
-		<svelte:component this={components[2]} />
+	<div class="bg-[--bcolor] rounded-lg">
+		<div
+			class="text-6xl rounded-lg backdrop-blur-xl m-15 p-[--padding] bg-[--bcolor] bg-gradient-to-br from-[#B190BA] to-[#E8B595] bg-clip-text text-fair-pink-50/25"
+		>
+			<svelte:component this={components[2]} />
+		</div>
 	</div>
 </div>
