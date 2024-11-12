@@ -34,12 +34,12 @@
 				<svelte:component this={components[1]} />
 			</div>
 		</div>
-	</div>
-	<div class="bg-[--bcolor] rounded-lg">
-		<div
-			class="text-6xl rounded-lg backdrop-blur-xl m-15 p-[--padding] bg-[--bcolor] bg-gradient-to-br from-[#B190BA] to-[#E8B595] bg-clip-text text-fair-pink-50/25"
-		>
-			<svelte:component this={components[2]} />
+		<div class="bg-[--bcolor] rounded-lg flex justify-center m-[--margin]">
+			<div
+				class="text-6xl rounded-lg backdrop-blur-xl m-15 p-[--padding] bg-[--bcolor] bg-gradient-to-br from-[#B190BA] to-[#E8B595] bg-clip-text text-fair-pink-50/25"
+			>
+				<svelte:component this={components[2]} />
+			</div>
 		</div>
 	</div>
 </div>
