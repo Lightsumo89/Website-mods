@@ -1,7 +1,6 @@
 <script lang="ts">
-	import Clock from '$lib/components/clock.svelte';
-	import Weather from '$lib/components/weather.svelte';
-	import type { ComponentType } from 'svelte';
+	import BgTransition from '$lib/BGTransition.svelte';
+	import { onMount, type onMount, type ComponentType } from 'svelte';
 
 	const Components: Record<string, { default: ComponentType }> = import.meta.glob(
 		'/src/lib/components/*.svelte',
@@ -13,13 +12,42 @@
 	let padding = 20;
 	let margin = 25;
 
+	// Change the gradient of the background every minute
+	let change: (a: string, b?: number) => void;
+	let currentGradient = 0;
+	// Gradients taken from https://cssgradient.io/swatches/
+	const gradients = [
+		'linear-gradient(135deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%)', // Day
+		'linear-gradient(135deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%)', // Night
+		'linear-gradient(135deg, #FDBB2D 0%, #3A1C71 100%)', // Fresco Crush
+		'linear-gradient(135deg, #4b6cb7 0%, #182848 100%)', // Sea Salt
+		'linear-gradient(135deg, #d53369 0%, #daae51 100%)', // Bloody Mimosa
+		'linear-gradient(135deg, #FC466B 0%, #3F5EFB 100%);' // Disco Club
+	];
+
+	let transitionTime = 30 * 1000;
+	let transitionDelay = 50 * 1000;
+
+	onMount(() => {
+		setInterval(() => {
+			let nextGradient = currentGradient;
+			while (nextGradient == currentGradient) {
+				nextGradient = Math.floor(Math.random() * gradients.length);
+			}
+			console.log(nextGradient);
+			change(gradients[nextGradient], transitionTime);
+			setTimeout(() => (currentGradient = nextGradient), transitionTime);
+		}, transitionDelay + transitionTime);
+	});
+
 	let components = Object.values(Components).map((component) => component.default);
 </script>
 
 <title>CS Lounge Dashboard</title>
-<div
-	class="bg-gradient-to-br from-[#B190BA] to-[#E8B595] h-screen w-screen items-center space-y-10 justify-center flex"
->
+<div class="h-screen w-screen items-center space-y-10 justify-center flex">
+	<div class="absolute inset-0 -z-10">
+		<BgTransition background={gradients[currentGradient]} bind:change />
+	</div>
 	<div class="bg-[--bcolor] flex-none fixed top-16 text-6xl py-5 rounded-lg px-32">
 		<div class="  text-[#C39CAE]">CS Lounge</div>
 	</div>
