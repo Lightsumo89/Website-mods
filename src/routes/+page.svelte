@@ -1,6 +1,9 @@
 <script lang="ts">
+	import { birthday } from '$lib';
 	import BgTransition from '$lib/BGTransition.svelte';
-	import { onMount, type onMount, type ComponentType } from 'svelte';
+	import Birthday from '$lib/Birthday.svelte';
+	import Confetti from '$lib/Confetti.svelte';
+	import { onMount, type ComponentType } from 'svelte';
 
 	const Components: Record<string, { default: ComponentType }> = import.meta.glob(
 		'/src/lib/components/*.svelte',
@@ -73,5 +76,16 @@
 				<svelte:component this={components[2]} />
 			</div>
 		</div>
+
+		{#if $birthday}
+			<div
+				class="absolute bottom-0 w-full h-1/3 text-[#C39CAE]/70 flex items-center justify-center"
+			>
+				<div class="bg-[--bcolor] p-[--padding] w-fit rounded-lg">
+					<Birthday name={$birthday} />
+				</div>
+			</div>
+			<Confetti />
+		{/if}
 	</div>
 </div>
