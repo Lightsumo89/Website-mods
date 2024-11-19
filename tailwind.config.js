@@ -3,6 +3,15 @@ export default {
 	content: ['./src/**/*.{html,js,svelte,ts}'],
 	theme: {
 		extend: {
+			keyframes: {
+				rainbow: {
+					'0%': { filter: 'hue-rotate(0deg)' },
+					'100%': { filter: 'hue-rotate(360deg)' }
+				}
+			},
+			animation: {
+				rainbow: 'rainbow linear 3s infinite'
+			},
 			colors: {
 				'woody-brown': {
 					DEFAULT: '#3C302C',
