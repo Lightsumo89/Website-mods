@@ -5,17 +5,17 @@
 </script>
 
 <div
-	class="pointer-events-none fixed left-0 top-[-50px] flex h-screen w-screen justify-center overflow-hidden"
+	class="pointer-events-none fixed left-0 top-[-50px] z-20 flex h-screen w-screen justify-center overflow-hidden"
 >
 	<!-- Fullscreen -->
 	<Confetti
 		colorArray={colors}
 		x={[-5, 5]}
 		y={[0, 0.1]}
-		fallDistance="50vh"
+		fallDistance="100vh"
 		infinite
 		delay={[100, 2500]}
-		duration={5000}
-		amount={100}
+		duration={10000}
+		amount={30}
 	/>
 </div>
