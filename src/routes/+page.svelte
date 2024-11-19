@@ -85,7 +85,6 @@
 					<Birthday name={$birthday} />
 				</div>
 			</div>
-			<Confetti />
 		{/if}
 	</div>
 </div>
