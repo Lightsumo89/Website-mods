@@ -6,11 +6,17 @@ export default {
 			keyframes: {
 				rainbow: {
 					'0%': { filter: 'hue-rotate(0deg)' },
-					'100%': { filter: 'hue-rotate(360deg)' }
+					'100%': { filter: 'hue-rotate(360deg)' },
+				},
+				'loop-scroll': {
+					from: { transform: 'translateX(0)' },
+					to: { transform: 'translateX(-100%)' }
+
 				}
 			},
 			animation: {
-				rainbow: 'rainbow linear 3s infinite'
+				rainbow: 'rainbow linear 3s infinite',
+				'loop-scroll': 'loop-scroll 10s linear infinite',
 			},
 			colors: {
 				'woody-brown': {

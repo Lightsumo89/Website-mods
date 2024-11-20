@@ -3,6 +3,7 @@
 	import BgTransition from '$lib/BGTransition.svelte';
 	import Birthday from '$lib/Birthday.svelte';
 	import Confetti from '$lib/Confetti.svelte';
+	import ThanksGiving from '$lib/ThanksGiving.svelte';
 	import { onMount, type ComponentType } from 'svelte';
 
 	const Components: Record<string, { default: ComponentType }> = import.meta.glob(
@@ -82,7 +83,7 @@
 				class="absolute bottom-0 w-full h-1/3 text-[#C39CAE]/70 flex items-center justify-center"
 			>
 				<div class="bg-[--bcolor] p-[--padding] w-fit rounded-lg">
-					<Birthday name={$birthday} />
+					<ThanksGiving />
 				</div>
 			</div>
 		{/if}
