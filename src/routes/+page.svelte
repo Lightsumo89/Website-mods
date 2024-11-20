@@ -78,14 +78,11 @@
 			</div>
 		</div>
 
-		{#if $birthday}
-			<div
-				class="absolute bottom-0 w-full h-1/3 text-[#C39CAE]/70 flex items-center justify-center"
-			>
-				<div class="bg-[--bcolor] p-[--padding] w-fit rounded-lg">
-					<ThanksGiving />
-				</div>
+		{#if $birthday}{/if}
+		<div class="absolute bottom-0 w-full h-1/3 text-[#C39CAE]/70 flex items-center justify-center">
+			<div class="bg-[--bcolor] p-[--padding] w-fit rounded-lg">
+				<ThanksGiving />
 			</div>
-		{/if}
+		</div>
 	</div>
 </div>
