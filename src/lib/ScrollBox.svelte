@@ -4,6 +4,7 @@
 
 	export let duration = 10000;
 
+	let containerWidth: number = 0;
 	let width: number = 0;
 	let height: number = 0;
 
@@ -20,20 +21,18 @@
 		move();
 		setInterval(move, duration + 1);
 	});
-
-	$: console.log(width);
 </script>
 
 <div
-	bind:clientWidth={width}
-	style="--w: {width}px; --h: {height}px; --s: {$scroll}"
+	bind:clientWidth={containerWidth}
+	style="--cw: {containerWidth}px; --h: {height}px; --s: {$scroll}"
 	class="overflow-hidden h-[--h]"
 >
-	<div class="flex translate-x-[calc(var(--s)*-100%)]">
-		<div bind:clientHeight={height} class="absolute w-[--w]">
+	<div style="--w: {width}px" class="flex translate-x-[calc(var(--s)*var(--w)*-1)]">
+		<div bind:clientHeight={height} bind:clientWidth={width} class="absolute min-w-[--cw]">
 			<slot></slot>
 		</div>
-		<div class="absolute left-full w-[--w]">
+		<div class="absolute left-[--w] min-w-[--cw]">
 			<slot></slot>
 		</div>
 	</div>
