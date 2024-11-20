@@ -10,12 +10,8 @@
 		Friendsgiving! <br />Thank you too:
 	</p>
 	<ScrollBox>
-		<p class="whitespace-nowrap">
-			Ian Venton,Eli Fereira Mio Mahoney Ethann Browne Eli DeCampo Preston Precourt Ian Venton
-		</p>
-		<p>
-			Jack Gallagher Olivia Perretto Joseph Vega Tiffany Cardoza Anthony Harter Luis Medina Victor
-			Lockwood Landon Rusco Duncan Zaug Nex Dubose
-		</p>
+		<pre class=" whitespace-nowrap">
+			Ian Venton Eli Fereira Mio Mahoney Ethann Browne Eli DeCampo Preston Precourt Ian Venton Jack Gallagher Olivia Perretto Joseph VegaTiffany Cardoza Anthony Harter Luis Medina Victor Lockwood Landon Rusco Duncan Zaug Nex Dubose
+		</pre>
 	</ScrollBox>
 </div>

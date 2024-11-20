@@ -2,7 +2,7 @@
 	import { onMount } from 'svelte';
 	import { tweened } from 'svelte/motion';
 
-	export let duration = 5000;
+	export let duration = 10000;
 
 	let width: number = 0;
 	let height: number = 0;
