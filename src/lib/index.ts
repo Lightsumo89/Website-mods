@@ -2,4 +2,4 @@
 
 import { writable } from "svelte/store";
 
-export const birthday = writable<string | null>("Victor");
+export const birthday = writable<string | null>(null);
