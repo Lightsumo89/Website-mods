@@ -1,5 +1,5 @@
 <script lang="ts">
-	let date = '12-09-24';
+	let date = '12-09-24 8:00:00am';
 	let futueDate = new Date(date).getTime();
 	let differenceInDays: Number;
 
