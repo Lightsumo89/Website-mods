@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { birthday } from '$lib';
+	import { birthday, confetti } from '$lib';
 	import BgTransition from '$lib/BGTransition.svelte';
 	import Birthday from '$lib/Birthday.svelte';
 	import Confetti from '$lib/Confetti.svelte';
@@ -38,7 +38,6 @@
 			while (nextGradient == currentGradient) {
 				nextGradient = Math.floor(Math.random() * gradients.length);
 			}
-			console.log(nextGradient);
 			change(gradients[nextGradient], transitionTime);
 			setTimeout(() => (currentGradient = nextGradient), transitionTime);
 		}, transitionDelay + transitionTime);
@@ -80,6 +79,10 @@
 
 		{#if $birthday}
 			<Birthday name={$birthday} />
+		{/if}
+
+		{#if $confetti}
+			<Confetti />
 		{/if}
 		<div class="absolute bottom-0 w-full h-1/3 text-[#C39CAE]/70 flex items-center justify-center">
 			<div class="bg-[--bcolor] p-[--padding] w-fit rounded-lg">
