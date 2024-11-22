@@ -29,7 +29,7 @@
 		Thank you for being a part of the CS Lounge! We are grateful for your presence. Happy
 		Friendsgiving! <br />Thank you to:
 	</p>
-	<ScrollBox duration={30000}>
+	<ScrollBox duration={50000}>
 		<pre class=" whitespace-nowrap">
 			{#each names as name}
 				<span>{name} • </span>
