@@ -78,7 +78,9 @@
 		</div>
 
 		{#if $birthday}
-			<Birthday name={$birthday} />
+			<div class="bg-[--bcolor] flex-none fixed bottom-[150px] text-6xl py-5 rounded-lg px-32">
+				<Birthday name={$birthday} />
+			</div>
 		{/if}
 
 		{#if $confetti}
