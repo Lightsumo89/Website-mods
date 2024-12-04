@@ -2,7 +2,7 @@
 
 import { writable } from 'svelte/store';
 
-export const birthday = writable<string | null>(null);
+export const birthday = writable<string | null>('Kerrie & Ian');
 export const listener = writable<string | null>(null);
 export const confetti = writable<boolean>(false);
 export const reloading = writable<boolean>(false);
