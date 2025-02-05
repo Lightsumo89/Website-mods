@@ -4,6 +4,7 @@
 	import Birthday from '$lib/Birthday.svelte';
 	import Confetti from '$lib/Confetti.svelte';
 	import ThanksGiving from '$lib/ThanksGiving.svelte';
+	import Contribs from '$lib/Contribs.svelte';
 	import { onMount, type ComponentType } from 'svelte';
 
 	const Components: Record<string, { default: ComponentType }> = import.meta.glob(
@@ -76,12 +77,17 @@
 				<svelte:component this={components[2]} />
 			</div>
 		</div>
-
-		{#if $birthday}
-			<div class="bg-[--bcolor] flex-none fixed bottom-[150px] text-6xl py-5 rounded-lg px-32">
-				<Birthday name={$birthday} />
-			</div>
-		{/if}
+		
+		<div class="flex-none fixed bottom-[150px]">
+			<div class="bg-[--bcolor] text-6xl rounded-lg py-5 px-32 my-5">
+			    <Contribs />
+            </div>
+			<div class="bg-[--bcolor] text-6xl rounded-lg py-5 px-32 my-5">
+		        {#if $birthday}
+				    <Birthday name={$birthday} />
+		        {/if}
+            </div>
+		</div>
 
 		{#if $confetti}
 			<Confetti />
