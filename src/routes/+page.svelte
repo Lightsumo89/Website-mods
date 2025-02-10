@@ -82,11 +82,11 @@
 			<div class="bg-[--bcolor] text-6xl rounded-lg py-5 px-32 my-5">
 			    <Contribs />
             </div>
-			<div class="bg-[--bcolor] text-6xl rounded-lg py-5 px-32 my-5">
-		        {#if $birthday}
-				    <Birthday name={$birthday} />
-		        {/if}
-            </div>
+		    {#if $birthday}
+			    <div class="bg-[--bcolor] text-6xl rounded-lg py-5 px-32 my-5">
+			        <Birthday name={$birthday} />
+                </div>
+		    {/if}
 		</div>
 
 		{#if $confetti}
